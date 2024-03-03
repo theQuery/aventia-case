@@ -1,0 +1,17 @@
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: orangered
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: black;
+}

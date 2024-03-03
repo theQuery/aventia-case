@@ -1,0 +1,52 @@
+<ul class="h-100 p-3 rounded-3 bg-light">
+    <div class="d-flex justify-content-between align-items-baseline mb-2">
+        <h2 class="h4">Bokmerker</h2>
+        <div class="badge text-bg-secondary">{{video['bookmarks'].length}}</div>
+    </div>
+
+    <div ngbAccordion [closeOthers]="true">
+        <div *ngFor="let bookmark of video['bookmarks']" ngbAccordionItem>
+            <div class="d-flex justify-content-between align-items-center p-2 bg-secondary-subtle">
+                <button ngbTooltip="Spill" [ngClass]="{'btn-success': bookmark.id === activeBookmark?.['id']}"
+                    class="btn btn-primary btn-sm d-flex gap-2" (click)="playBookmark(bookmark)">
+                    <fa-icon [icon]="faPlay" />
+                    {{bookmark.started | date: 'mm:ss'}} - {{bookmark.ended | date: 'mm:ss'}}
+                </button>
+                <div ngbTooltip="Dokumenter" class="fs-5 text-muted d-flex gap-2">
+                    <fa-icon [icon]="faFile" /> {{bookmark.documents.length}}
+                </div>
+            </div>
+
+            <h3 ngbAccordionHeader>
+                <button ngbAccordionButton class="rounded-top-0">
+                    <span class="me-3 fw-bold">{{ bookmark.title }}</span>
+                </button>
+            </h3>
+
+            <div ngbAccordionCollapse>
+                <ng-container *ngIf="bookmark.documents.length">
+                    <h4 class="m-0 p-3 pb-0 h5">Dokumenter</h4>
+                    <div ngbAccordionBody>
+                        <ng-template>
+                            <ol class="list-group list-group-numbered">
+                                <li *ngFor="let document of bookmark.documents"
+                                    class="list-group-item d-flex justify-content-between align-items-baseline">
+                                    <div class="ms-3 w-100">
+                                        <div class="fw-bold">{{document.title}}
+                                        </div> {{document.filename}}
+                                    </div>
+                                    <button class="btn btn-outline-dark btn-sm" ngbTooltip="Last Ned">
+                                        <fa-icon [icon]="faDownload" />
+                                    </button>
+                                </li>
+                            </ol>
+                        </ng-template>
+                    </div>
+                </ng-container>
+                <h4 *ngIf="!bookmark.documents.length" class="m-0 p-3 h5">
+                    Ingen dokumenter...
+                </h4>
+            </div>
+        </div>
+    </div>
+</ul>

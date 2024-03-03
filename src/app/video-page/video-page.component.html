@@ -1,0 +1,25 @@
+<div class="container-xxl">
+    <ng-container *ngIf="video">
+        <div class="row">
+            <h1 class="col fw-bold">{{video['stream'].title}}</h1>
+        </div>
+        <div class="row my-3">
+            <hr class="col mx-3 border-2" />
+        </div>
+        <div class="row g-4">
+            <div class="col-xl-8">
+                <app-video-player [video]="video" [bookmark]="bookmark" />
+            </div>
+            <div class="col-xl-4">
+                <app-bookmarks [video]="video" (bookmarkEvent)="handleBookmarkEvent($event)" />
+            </div>
+        </div>
+    </ng-container>
+
+    <div *ngIf="!video && !error" class='d-flex justify-content-center align-items-center gap-4'>
+        <div class="spinner-grow text-bg-danger" aria-hidden="true"></div>
+        <h1 role="status">Laster inn...</h1>
+    </div>
+
+    <h1 *ngIf="error" role="status">Error: {{error.message}}</h1>
+</div>

@@ -1,14 +1,11 @@
-.nav-link {
-    color: white;
+.nav-link,
+.dropdown-item {
+    color: hsl(0, 0%, 30%);
 }
 
 .nav-link:hover,
 .nav-link:focus-visible {
-    color: orangered
-}
-
-.dropdown-item {
-    color: white;
+    color: orangered;
 }
 
 .dropdown-item:hover,

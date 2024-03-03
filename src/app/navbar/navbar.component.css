@@ -3,7 +3,7 @@
 }
 
 .nav-link:hover,
-.nav-link:focus {
+.nav-link:focus-visible {
     color: orangered
 }
 
@@ -12,6 +12,6 @@
 }
 
 .dropdown-item:hover,
-.dropdown-item:focus {
+.dropdown-item:focus-visible {
     color: black;
 }

@@ -5,7 +5,8 @@
     </div>
 
     <div ngbAccordion [closeOthers]="true">
-        <div *ngFor="let bookmark of video['bookmarks']" ngbAccordionItem class="border-2">
+        @for(bookmark of video['bookmarks']; track bookmark.id) {
+        <div ngbAccordionItem class="border-2">
             <div class="d-flex justify-content-between align-items-center p-2 bg-secondary-subtle">
                 <button ngbTooltip="Spill" [ngClass]="{'btn-success': bookmark.id === activeBookmark?.['id']}"
                     class="btn btn-primary btn-sm d-flex gap-2" (click)="playBookmark(bookmark)">
@@ -29,8 +30,8 @@
                     <div ngbAccordionBody>
                         <ng-template>
                             <ol class="list-group list-group-numbered">
-                                <li *ngFor="let document of bookmark.documents"
-                                    class="list-group-item d-flex justify-content-between align-items-baseline">
+                                @for(document of bookmark.documents; track document.id) {
+                                <li class="list-group-item d-flex justify-content-between align-items-baseline">
                                     <div class="ms-3 w-100">
                                         <div class="fw-bold">{{document.title}}
                                         </div> {{document.filename}}
@@ -39,6 +40,7 @@
                                         <fa-icon [icon]="faDownload" />
                                     </button>
                                 </li>
+                                }
                             </ol>
                         </ng-template>
                     </div>
@@ -48,5 +50,6 @@
                 </h5>
             </div>
         </div>
+        }
     </div>
 </ul>

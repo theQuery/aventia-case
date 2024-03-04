@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg mb-5 p-3 bg-white shadow-sm">
     <div class="container-xxl">
-        <a class="navbar-brand" routerLink=".">
+        <a class="navbar-brand" routerLink="hjem">
             <img src='https://www.aventia.no/kommunetv/wp-content/uploads/sites/2/2022/04/Aventia_sort-5.png'
                 alt="Aventia">
         </a>
@@ -32,7 +32,7 @@
                     </a>
                     <div [ngbCollapse]="isDropdownCollapsed" class="dropdown-menu">
                         @for (item of ['Med', 'Flere', 'Nivåer']; track item) {
-                        <a class="dropdown-item d-flex gap-2 ms-2 ms-lg-0 text-md" routerLink=".">
+                        <a class="dropdown-item d-flex gap-2 ms-2 ms-lg-0 text-md" [routerLink]="item">
                             <fa-icon class="d-lg-none" [icon]="faMinus" /> {{item}}
                         </a>
                         }
@@ -40,13 +40,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex gap-2" routerLink="." (click)="isMenuCollapsed = true">
+                    <a class="nav-link d-flex gap-2" routerLink="søk" (click)="isMenuCollapsed = true">
                         <fa-icon [icon]="faSearch" /> Søk
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link d-flex gap-2" routerLink="." (click)="isMenuCollapsed = true">
+                    <a class="nav-link d-flex gap-2" routerLink="log-inn" (click)="isMenuCollapsed = true">
                         <fa-icon [icon]="faUser" /> Log Inn
                     </a>
                 </li>

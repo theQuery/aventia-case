@@ -14,7 +14,7 @@ import { faHome, faVideo, faFolder, faSearch, faUser, faMinus, faBars } from '@f
 })
 export class NavbarComponent {
   constructor(private router: Router) {
-    router.events.subscribe((route: any) => this.routeUrl = route.url);
+    router.events.subscribe((route: any) => this.routeUrl = route.urlAfterRedirects);
   }
 
   isMenuCollapsed = true;

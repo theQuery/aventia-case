@@ -1,58 +1,56 @@
-<div>
-    <nav class="navbar navbar-expand-lg mb-5 p-lg-3 bg-white shadow-sm">
-        <div class="container-xxl">
-            <a class="navbar-brand" routerLink=".">
-                <img src='https://www.aventia.no/kommunetv/wp-content/uploads/sites/2/2022/04/Aventia_sort-5.png'
-                    alt="Aventia">
-            </a>
+<nav class="navbar navbar-expand-lg mb-5 p-3 bg-white shadow-sm">
+    <div class="container-xxl">
+        <a class="navbar-brand" routerLink=".">
+            <img src='https://www.aventia.no/kommunetv/wp-content/uploads/sites/2/2022/04/Aventia_sort-5.png'
+                alt="Aventia">
+        </a>
 
-            <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-                <fa-icon [icon]="faBars" />
-            </button>
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+            <fa-icon [icon]="faBars" />
+        </button>
 
-            <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse flex-grow-0">
-                <ul class="navbar-nav gap-lg-4 pt-3 pt-lg-0">
-                    <li class="nav-item">
-                        <a [ngClass]="{'border-bottom border-3 rounded-1': routeUrl === '/hjem'}"
-                            class="nav-link d-flex gap-2" routerLink="hjem" (click)="isMenuCollapsed = true">
-                            <fa-icon [icon]="faHome" /> Hjem
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse flex-grow-0">
+            <ul class="navbar-nav gap-lg-4 pt-3 pt-lg-0">
+                <li class="nav-item">
+                    <a [ngClass]="{'border-bottom border-3 rounded-1': routeUrl === '/hjem'}"
+                        class="nav-link d-flex gap-2" routerLink="hjem" (click)="isMenuCollapsed = true">
+                        <fa-icon [icon]="faHome" /> Hjem
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a [ngClass]="{'border-bottom border-3 rounded-1': routeUrl === '/video'}"
+                        class="nav-link d-flex gap-2" routerLink="video" (click)="isMenuCollapsed = true">
+                        <fa-icon [icon]="faVideo" /> Video
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex gap-2 align-items-center dropdown-toggle" role="button"
+                        aria-haspopup="true" (click)="isDropdownCollapsed = !isDropdownCollapsed">
+                        <fa-icon [icon]="faFolder" /> Meny
+                    </a>
+                    <div [ngbCollapse]="isDropdownCollapsed" class="dropdown-menu">
+                        @for (item of ['Med', 'Flere', 'Nivåer']; track item) {
+                        <a class="dropdown-item d-flex gap-2 ms-2 ms-lg-0 text-md" routerLink=".">
+                            <fa-icon class="d-lg-none" [icon]="faMinus" /> {{item}}
                         </a>
-                    </li>
+                        }
+                    </div>
+                </li>
 
-                    <li class="nav-item">
-                        <a [ngClass]="{'border-bottom border-3 rounded-1': routeUrl === '/video'}"
-                            class="nav-link d-flex gap-2" routerLink="video" (click)="isMenuCollapsed = true">
-                            <fa-icon [icon]="faVideo" /> Video
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex gap-2" routerLink="." (click)="isMenuCollapsed = true">
+                        <fa-icon [icon]="faSearch" /> Søk
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link d-flex gap-2 align-items-center dropdown-toggle" role="button"
-                            aria-haspopup="true" (click)="isDropdownCollapsed = !isDropdownCollapsed">
-                            <fa-icon [icon]="faFolder" /> Meny
-                        </a>
-                        <div [ngbCollapse]="isDropdownCollapsed" class="dropdown-menu">
-                            @for (item of ['Med', 'Flere', 'Nivåer']; track item) {
-                            <a class="dropdown-item d-flex gap-2 ms-2 ms-lg-0 text-md" routerLink=".">
-                                <fa-icon class="d-lg-none" [icon]="faMinus" /> {{item}}
-                            </a>
-                            }
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link d-flex gap-2" routerLink="." (click)="isMenuCollapsed = true">
-                            <fa-icon [icon]="faSearch" /> Søk
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link d-flex gap-2" routerLink="." (click)="isMenuCollapsed = true">
-                            <fa-icon [icon]="faUser" /> Log Inn
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link d-flex gap-2" routerLink="." (click)="isMenuCollapsed = true">
+                        <fa-icon [icon]="faUser" /> Log Inn
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>

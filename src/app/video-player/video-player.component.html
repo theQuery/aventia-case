@@ -1,13 +1,13 @@
-<div class="d-flex flex-column gap-2 p-3 rounded-3 bg-light">
+<div class="d-flex flex-column gap-2">
     <div class="d-flex justify-content-between align-items-baseline gap-3">
-        <h2 class="h4 text-truncate">{{bookmark?.['title']}}&nbsp;</h2>
+        <h2 class="h4 text-truncate">{{bookmark?.['title'] || 'Lorem ipsum'}}</h2>
 
         <div class="badge text-bg-secondary d-none d-lg-block">
             {{video['stream'].publishDate | date: 'medium'}}
         </div>
     </div>
 
-    <video #videoPlayer class="rounded-3 w-100" controls [poster]="video['stream'].imageUrl">
+    <video #videoPlayer class="rounded-2 w-100" controls [poster]="video['stream'].imageUrl">
         <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
         Your browser does not support video.
     </video>

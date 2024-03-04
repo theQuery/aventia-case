@@ -1,11 +1,11 @@
-<ul class="h-100 p-3 rounded-3 bg-light">
+<ul class="p-0">
     <div class="d-flex justify-content-between align-items-baseline mb-2">
-        <h2 class="h4">Bokmerker</h2>
+        <h3 class="h4">Bokmerker</h3>
         <div class="badge text-bg-secondary">{{video['bookmarks'].length}}</div>
     </div>
 
     <div ngbAccordion [closeOthers]="true">
-        <div *ngFor="let bookmark of video['bookmarks']" ngbAccordionItem>
+        <div *ngFor="let bookmark of video['bookmarks']" ngbAccordionItem class="border-2">
             <div class="d-flex justify-content-between align-items-center p-2 bg-secondary-subtle">
                 <button ngbTooltip="Spill" [ngClass]="{'btn-success': bookmark.id === activeBookmark?.['id']}"
                     class="btn btn-primary btn-sm d-flex gap-2" (click)="playBookmark(bookmark)">
@@ -17,15 +17,15 @@
                 </div>
             </div>
 
-            <h3 ngbAccordionHeader>
+            <h4 ngbAccordionHeader>
                 <button ngbAccordionButton class="rounded-top-0">
-                    <span class="me-3 fw-bold">{{ bookmark.title }}</span>
+                    <span class="me-3">{{ bookmark.title }}</span>
                 </button>
-            </h3>
+            </h4>
 
             <div ngbAccordionCollapse>
                 <ng-container *ngIf="bookmark.documents.length">
-                    <h4 class="m-0 p-3 pb-0 h5">Dokumenter</h4>
+                    <h5 class="m-0 p-3 pb-0">Dokumenter</h5>
                     <div ngbAccordionBody>
                         <ng-template>
                             <ol class="list-group list-group-numbered">
@@ -43,9 +43,9 @@
                         </ng-template>
                     </div>
                 </ng-container>
-                <h4 *ngIf="!bookmark.documents.length" class="m-0 p-3 h5">
+                <h5 *ngIf="!bookmark.documents.length" class="m-0 p-3">
                     Ingen dokumenter...
-                </h4>
+                </h5>
             </div>
         </div>
     </div>
